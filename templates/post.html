@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block contents %}
+
+{% for message in get_flashed_messages(with_categories = true) %}
+{{ message }}
+{% endfor %}
+
+<ol>
+
+    {% for num in range(1, count + 1) %}
+
+        <li><b>{{r.hget('Comments', num).name}}</b><br>
+        {{r.hget('Comments', num).comment}}</li><br>
+
+    {% endfor %}
+
+</ol>
+
+{% endblock %}

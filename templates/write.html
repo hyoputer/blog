@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+<br>
+
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+
+<form action = "/write" method = 'POST'>
+    <label for = "name">닉네임:</label>
+    <input type = "text" name = "name" value = "{{request.form.name}}" /><br>
+    <label for "comment">글:</label>
+    <input type = "text" name = "comment" value = "{{request.form.comment}}" /><br>
+    <input type = "submit" value = "제출!"/>
+</form>
+
+{% endblock %}
