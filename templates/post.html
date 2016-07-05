@@ -1,16 +1,17 @@
 {% extends "main.html" %}
-{% block contents %}
+{% block content %}
+<br>
 
-{% for message in get_flashed_messages(with_categories = true) %}
+{% for message in get_flashed_messages() %}
 {{ message }}
 {% endfor %}
 
 <ol>
 
-    {% for num in range(1, count + 1) %}
+    {% for comments in list %}
 
-        <li><b>{{r.hget('Comments', num).name}}</b><br>
-        {{r.hget('Comments', num).comment}}</li><br>
+        <li><b>{{comments.name}}</b><br>
+        {{comments.comment}}</li><br>
 
     {% endfor %}
 
